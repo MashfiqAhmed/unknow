@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHALDAL</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+    
+        body {
+            background-color: rgb(193, 178, 207);
+            color: white;
+            padding: 20px;
+        }
+    
+        nav {
+            background-color: #5e4b8b;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            padding: 8px 15px;
+            border: 2px dashed white;
+            border-radius: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+    
+        nav a:hover {
+            background-color: white;
+            color: #5e4b8b;
+        }
+    
+        form {
+            background-color: #7d67a6;
+            padding: 25px;
+            border-radius: 12px;
+            width: 300px;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+        }
+    
+        button {
+            background-color: #ffcc00;
+            color: black;
+            font-weight: bold;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        button:hover {
+            background-color: #e6b800;
+        }
+    
+        p {
+            color: yellow;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+    </style>
+    
+</head>
+<body>
+    <nav>
+        <a href="home.html" id="a1">HOME</a>
+        <a href="product.html" id="a2">Product</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <form id="f1" onsubmit="return vailidate_form()">
+        <label>Product Name</label><br>
+        <input type="text" id="i1" placeholder="enter the product name">
+        <p id="p1"></p><br>
+
+        <label>Price</label><br>
+        <input type="number" id="i2" placeholder="price">
+        <p id="p2"></p><br>
+
+        <label>Category</label><br>
+        <select id="s1">
+            <option value="">select</option>
+            <option value="big">big</option>    
+            <option value="medium">medium</option>
+            <option value="small">small</option>
+        </select>
+        <p id="p3"></p><br>
+
+        <label>Quantity</label><br>
+        <input type="text" id="i3" placeholder="enter the quantity">
+        <p id="p4"></p><br>
+
+        <button type="submit">Add</button>
+    </form>
+
+    <script>
+        function vailidate_form() {
+            let w1 = document.getElementById("i1");
+            let w2 = document.getElementById("i2");
+            let w3 = document.getElementById("i3");
+            let w5 = document.getElementById("s1");
+
+            let z1 = document.getElementById("p1");
+            let z2 = document.getElementById("p2");
+            let z3 = document.getElementById("p3");
+            let z4 = document.getElementById("p4");
+
+            // Clear previous messages
+            z1.innerHTML = "";
+            z2.innerHTML = "";
+            z3.innerHTML = "";
+            z4.innerHTML = "";
+
+            if (w1.value == "") {
+                z1.innerHTML = "ENTER THE PRODUCT NAME";
+                return false;
+            }
+
+            if (w2.value == "" || Number(w2.value) < 0) {
+                z2.innerHTML = "ENTER A VALID PRICE";
+                return false;
+            }
+
+            if (w5.value == "") {
+                z3.innerHTML = "SELECT A CATEGORY";
+                return false;
+            }
+
+            if (w3.value == "") {
+                z4.innerHTML = "INSERT THE QUANTITY";
+                return false;
+            }
+
+            // All good, go to next page
+            window.location.href = "n2.html";
+            return false; // stop form submission (because we redirected manually)
+        }
+    </script>
+</body>
+</html>

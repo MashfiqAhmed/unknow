@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgba(28, 151, 127, 0.849);
+            color: white;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            color: black;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ffcc00;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e6b800;
+        }
+
+        p {
+            color: yellow;
+            font-size: 14px;
+            margin-top: -8px;
+            margin-bottom: 10px;
+        }
+        #n1{
+        
+            background-color: #5e4b8b;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        #a1{
+            background-color: #5e4b8b;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        #a2{
+            background-color: #5e4b8b;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        #a3{
+            background-color: #5e4b8b;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav id="n1">
+        <a href="home.html"id="a1">HOME</a>
+        <a href="product.html" id="a2">PRODUCT</a>
+        <a href="about.html"id="a3">ABOUT</a>
+        
+
+    </nav>
+    <h2>Please fill out the form</h2>
+    <form id="f1" onsubmit="return validate_contact()">
+        <label for="i1">Name</label>
+        <input type="text" id="i1" placeholder="Your name" />
+        <p id="p1"></p>
+
+        <label for="i2">Cell</label>
+        <input type="number" id="i2" placeholder="Phone number" />
+        <p id="p2"></p>
+
+        <label for="i3">Email</label>
+        <input type="email" id="i3" placeholder="Email address" />
+        <p id="p3"></p>
+
+        <label for="i4">Reason</label>
+        <input type="text" id="i4" placeholder="Give us the reason" />
+        <p id="p4"></p>
+
+        <button type="submit">SUBMIT</button>
+    </form>
+
+    <script>
+        function validate_contact() {
+            let w1 = document.getElementById("i1");
+            let w2 = document.getElementById("i2");
+            let w3 = document.getElementById("i3");
+            let w4 = document.getElementById("i4");
+
+            let z1 = document.getElementById("p1");
+            let z2 = document.getElementById("p2");
+            let z3 = document.getElementById("p3");
+            let z4 = document.getElementById("p4");
+
+            // Clear previous error messages
+            z1.innerHTML = "";
+            z2.innerHTML = "";
+            z3.innerHTML = "";
+            z4.innerHTML = "";
+
+            let valid = true;
+
+            if (w1.value.trim() === "") {
+                z1.innerHTML = "ENTER THE NAME";
+                valid = false;
+            }
+
+            if (w2.value.trim() === "" || Number(w2.value) < 0) {
+                z2.innerHTML = "ENTER A VALID CELL NUMBER";
+                valid = false;
+            }
+
+            if (w3.value.trim() === "") {
+                z3.innerHTML = "ENTER THE EMAIL";
+                valid = false;
+            }
+
+            if (w4.value.trim() === "") {
+                z4.innerHTML = "ENTER THE REASON";
+                valid = false;
+            }
+
+            if (!valid) return false;
+
+            // All good, redirect
+            window.location.href = "n2.html";
+            return false;
+        }
+    </script>
+</body>
+</html>
